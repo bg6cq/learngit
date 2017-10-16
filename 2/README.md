@@ -35,7 +35,7 @@ ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAr9X0n+zQ0zS7A9JLV8611I4w4B13MEbdmDkGf6OyL4f0
 
 3. 登录GitHub
 
-浏览器访问 [https://github.com](https://github.com), 单击 "Sign in", 输入自己账号、
+浏览器访问 [https://github.com](https://github.com)，单击 "Sign in"，输入自己账号、
 密码，登录Github。如果已经登录，请忽略这一步。
 
 4. 将自己的公钥加到github账号
