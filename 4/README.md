@@ -133,5 +133,7 @@ To git@github.com:zhangyunkai/ilovegit.git
 
 5. 等pull请求合并后，同步上游的代码
 
+第四课内容比较多，如果完成，恭喜你理解了github协作的精髓。
+
 
 
