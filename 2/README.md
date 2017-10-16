@@ -41,39 +41,32 @@ ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAr9X0n+zQ0zS7A9JLV8611I4w4B13MEbdmDkGf6OyL4f0
 
 4. 将自己的公钥加到github账号中
 
-单击最右上角的图标，弹出的下来框中，单击"Settings"
+单击最右上角的图标，弹出的下来框中，单击"Settings"，如下图所示：
+![Settings](settings.png)
 
-输入想要的账号，邮件，密码，单击 Sign up for GitHub注册。
+单击左侧的"SSH and PGP keys"，单击右上角的"New SSH key"或者直接拉到最下，如下图所示：
+![newkey](newkey.png)
+
+在Key窗口中粘贴上面的id_rsa.pub内容，注意文本是一行，中间不能有换行，然后单击"Add SSH key"，如下图所示：
+![Add SSH key](3.png)
 
 ## 课程完成检查点
-1. 可以远程登录Linux，输入中英文
-
-执行以下命令，可以输出本文
+1. 配置了自己的姓名和邮箱
+执行`git config --global -l`可以看到，如下:
 ````
-curl https://raw.githubusercontent.com/bg6cq/learngit/master/1/README.md
+[james@linux ~]$ git config --global -l
+user.name=Zhang Huanjie
+user.email=james@ustc.edu.cn
 ````
-2. 执行`git`有显示
-```
-$ git
-usage: git [--version] [--help] [-c name=value]
-           [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]
-           [-p|--paginate|--no-pager] [--no-replace-objects] [--bare]
-           [--git-dir=<path>] [--work-tree=<path>] [--namespace=<name>]
-           <command> [<args>]
 
-The most commonly used git commands are:
-   add        Add file contents to the index
-   bisect     Find by binary search the change that introduced a bug
-   branch     List, create, or delete branches
-   checkout   Checkout a branch or paths to the working tree
-   clone      Clone a repository into a new directory
-   commit     Record changes to the repository
-   diff       Show changes between commits, commit and working tree, etc
-   fetch      Download objects and refs from another repository
+2. Linux服务器上有自己账户的ssh-key
 
-```
+执行以下命令，可以看到key文件
+````
+ls ~/.ssh
+````
 
-3. 有github账号可以登录
+3. github账号中添加了自己的公钥
    
-浏览器访问 [https://github.com](https://github.com)，单击Sign in, 输入自己账号，密码，可以登录。
+浏览器访问 [https://github.com](https://github.com)，单击Sign in, 输入自己账号，密码，登录后在有上角图标下来菜单Settings/SSH and GPG keys可以看到自己的公钥。
 
