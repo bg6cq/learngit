@@ -84,7 +84,7 @@ To git@github.com:zhangyunkai/ilovegit.git
 
 7. 上游接受修改后，可以看到上游已经变了
 
-上游接受修改后，查看 https://github.com/bg6cq/ilovegit 可以看到文件已经发生变化。
+上游接受修改后（大家请勿催我，有时间我会尽快接受合并），查看 https://github.com/bg6cq/ilovegit 可以看到文件已经发生变化。
 
 8. 合并上游的修改
 
