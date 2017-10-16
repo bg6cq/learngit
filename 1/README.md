@@ -26,7 +26,7 @@ en_US.utf-8
 
 4. 注册github账号
 
-浏览器访问 [https://github.com](https://github.com), 输入想要的账号、邮件、密码，单击 Sign up for GitHub 注册。
+浏览器访问 [https://github.com](https://github.com), 输入想要的账号、邮件、密码，单击 "Sign up for GitHub" 注册。
 
 ## 课程完成检查点
 
@@ -58,5 +58,5 @@ The most commonly used git commands are:
 
 3. 有github账号可以登录
    
-浏览器访问 [https://github.com](https://github.com)，单击Sign in, 输入自己账号、密码，可以登录。
+浏览器访问 [https://github.com](https://github.com)，单击 "Sign in", 输入自己账号、密码，可以登录。
 
