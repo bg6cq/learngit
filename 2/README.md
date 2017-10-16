@@ -14,13 +14,13 @@ git config --global user.email james@ustc.edu.cn
 ssh-key是git客户端与github认证最方便的方式。
 
 首先查看自己的账户是否已经生成过ssh-key，执行命令
-····
+````
 james@linux ~]$ ls -al ~/.ssh
 drwx------  2 james users 4096 Nov 27  2015 .
 drwxr-xr-x 27 james users 4096 Oct 16 23:06 ..
 -rw-------  1 james users 1675 Nov 22  2015 id_rsa
 -rw-r--r--  1 james users  405 Nov 22  2015 id_rsa.pub
-····
+````
 如果自己的home目录.ssh目录下存在id_rsa和id_rsa.pub，说明ssh-key已经存在，可以跳过这一步。
 
 否则执行
@@ -28,7 +28,7 @@ drwxr-xr-x 27 james users 4096 Oct 16 23:06 ..
 ssh-keygen
 ```
 生成ssh-key，其中的`id_rsa`是自己的私钥，请妥善保存；`id_ras.pub`是自己的公钥，别人拿到也无所谓，可以随意公布。
-上面的文件id_rsa.pub内容是
+上面的文件id_rsa.pub内容(很长的一行)是
 ```
 [james@linux ~]$ cat ~/.ssh/id_rsa.pub
 ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAr9X0n+zQ0zS7A9JLV8611I4w4B13MEbdmDkGf6OyL4f0LVLPY2f7yZpi8VqgyqwUasGtMYRcyE/A7vln+pNEwASPviluhfGr7coxE9ZisdxXTkex9oqhqPfmhnlBjLtsTg3Yh4ZLmzgYprQgAacT9Fc1hNnrc5vwh5lMh7i+bfVkIXbKY8k2dc39qBbsVxtmLDd1rLpb4i+laajglrBvHWFrWdMiOp4Y/O948hSuShDhpthvkV+ZYOlh9QsRD2rXNqfTMC0QXYeYI3tNUMdGxdqgdMC7ZwpH69e5l9WhnMEK1N8io5lITwEhSyoouRmJGuaYaF8MY6BHicuBu9FJEw== james@linux.ustc.edu.cn
