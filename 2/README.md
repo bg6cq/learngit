@@ -51,7 +51,9 @@ ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAr9X0n+zQ0zS7A9JLV8611I4w4B13MEbdmDkGf6OyL4f0
 ![Add SSH key](3.png)
 
 ## 课程完成检查点
+
 1. 配置了自己的姓名和邮箱
+
 执行`git config --global -l`可以看到，如下:
 ````
 [james@linux ~]$ git config --global -l
@@ -65,8 +67,6 @@ user.email=james@ustc.edu.cn
 ````
 ls ~/.ssh
 ````
-
 3. github账号中添加了自己的公钥
    
 浏览器访问 [https://github.com](https://github.com)，单击Sign in, 输入自己账号，密码，登录后在有上角图标下来菜单Settings/SSH and GPG keys可以看到自己的公钥。
-
