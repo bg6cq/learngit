@@ -18,7 +18,9 @@
 完成项目创建。
 
 3. 把Linux上的某些文件加入版本管理跟踪
+
 假定Linux上test目录（这里是新建的目录）下是要跟踪的文件。
+
 以下的命令，新建了2个测试文件1.txt，2.txt，并把文件提交给服务器。
 ````
 [james@linux ~]$ mkdir test
@@ -50,6 +52,7 @@ To git@github.com:zhangyunkai/test.git
 这时登录https://github.com/zhangyunkai/test 能看到2个文件。
 
 4. 修改文件并提交变化
+
 执行以下命令，在文件中增加内容，并提交修改：
 ````
 [james@linux test]$ echo "test line 2 of file 1" >> 1.txt
@@ -66,16 +69,16 @@ Writing objects: 100% (4/4), 334 bytes, done.
 Total 4 (delta 0), reused 0 (delta 0)
 To git@github.com:zhangyunkai/test.git
    944e15d..532b002  master -> master
-```
+````
 这时登录https://github.com/zhangyunkai/test 能看到2个文件有变化。
 
 5. 查看变化的历史
 
 单击https://github.com/zhangyunkai/test 下图的位置，可以看到文件变化的历史：
 
-![1.png](1.png}
-![2.png](2.png}
-![3.png](3.png}
+![1.png](1.png)
+![2.png](2.png)
+![3.png](3.png)
 
 
 ## 课程完成检查点
