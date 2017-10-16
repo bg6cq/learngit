@@ -1,6 +1,6 @@
 ## 大家一起学Git 第四课 Fork一个项目，把自己的修改提交给服务器，并向上游发pull请求
 
-注：以下测试使用的账号是zhangyunkai，请用自己的账号替换。
+注：以下测试使用的账号是zhangyunkai（XXXX），请用自己的账号替换。
 
 1. 登录GitHub
 
@@ -18,10 +18,10 @@ Fork这个项目的方式是，用浏览器打开 [https://github.com/bg6cq/ilov
 
 3. 在Linux中下载一份项目代码
 
-执行以下命令，下载一份项目代码到目录ilovegit，注意这里的项目库地址是自己(zhangyunkai)的，而不是bg6cq的。
+执行以下命令，下载一份项目代码到目录ilovegit，注意这里的项目库地址是自己(zhangyunkai/XXXX)的，而不是bg6cq的。
 ````
 cd ~
-[james@linux ~]$ git clone git@github.com:zhangyunkai/ilovegit.git
+[james@linux ~]$ git clone git@github.com:XXXX/ilovegit.git
 Cloning into 'ilovegit'...
 remote: Counting objects: 3, done.
 remote: Compressing objects: 100% (2/2), done.
@@ -54,8 +54,8 @@ Total 3 (delta 0), reused 0 (delta 0)
 To git@github.com:zhangyunkai/ilovegit.git
    ef30c17..b375ad9  master -> master
 ````
-因为提交的是自己fork的那份库，也就是zhangyuankai/ilovegit。  
-这时登录https://github.com/zhangyunkai/ilovegit 能看到文件有变化。  
+因为提交的是自己fork的那份库，也就是XXXX/ilovegit。  
+这时登录https://github.com/XXXX/ilovegit 能看到文件有变化。  
 查看https://github.com/bg6cq/ilovegit 看到文件并没有变化。
 
 5. 向上游发送一个pull请求
@@ -64,7 +64,7 @@ To git@github.com:zhangyunkai/ilovegit.git
 别人合并（merge）后，自己的修改就被别人接受了。
 
 创建pull请求的操作如下：
-在自己的库https://github.com/zhangyunkai/ilovegit 中，单击"New pull request"
+在自己的库https://github.com/XXXX/ilovegit 中，单击"New pull request"
 ![new pull request](p1.png)
 在出来的窗口中（注意页面顶端的url已经是bg6cq的），能看到要提交给别人的修改，单击"Create pull request"
 ![new pull request](p2.png)

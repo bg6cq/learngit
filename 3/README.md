@@ -1,6 +1,6 @@
 ## 大家一起学Git 第三课 新建项目，跟踪自己的修改
 
-注：以下测试使用的账号是zhangyunkai，请用自己的账号替换。
+注：以下测试使用的账号是zhangyunkai（XXXX），请用自己的账号替换。
 
 1. 登录GitHub
 
@@ -35,7 +35,7 @@ Initialized empty Git repository in /home/users/james/test/.git/
  2 files changed, 2 insertions(+)
  create mode 100644 1.txt
  create mode 100644 2.txt
-[james@linux test]$ git remote add origin git@github.com:zhangyunkai/test.git
+[james@linux test]$ git remote add origin git@github.com:XXXX/test.git
 [james@linux test]$ git push -u origin master
 The authenticity of host 'github.com (192.30.255.112)' can't be established.
 RSA key fingerprint is 16:27:ac:a5:76:28:2d:36:63:1b:56:4d:eb:df:a6:48.
@@ -49,7 +49,7 @@ Total 4 (delta 0), reused 0 (delta 0)
 To git@github.com:zhangyunkai/test.git
  * [new branch]      master -> master
 ````
-这时登录https://github.com/zhangyunkai/test 能看到2个文件。
+这时登录https://github.com/XXXX/test 能看到2个文件。
 
 4. 修改文件并提交变化
 
@@ -70,11 +70,11 @@ Total 4 (delta 0), reused 0 (delta 0)
 To git@github.com:zhangyunkai/test.git
    944e15d..532b002  master -> master
 ````
-这时登录https://github.com/zhangyunkai/test 能看到2个文件有变化。
+这时登录https://github.com/XXXX/test 能看到2个文件有变化。
 
 5. 查看变化的历史
 
-单击https://github.com/zhangyunkai/test 下图的位置，可以看到文件变化的历史：
+单击https://github.com/XXXX/test 下图的位置，可以看到文件变化的历史：
 
 ![1.png](1.png)
 ![2.png](2.png)
