@@ -18,7 +18,7 @@ Fork这个项目的方式是，用浏览器打开 [https://github.com/bg6cq/ilov
 
 3. 在Linux中下载一份项目代码
 
-以下的命令，下载一份项目代码，注意这里的项目库地址是自己(zhangyunkai)的，而不是bg6cq的。
+执行以下命令，下载一份项目代码到目录ilovegit，注意这里的项目库地址是自己(zhangyunkai)的，而不是bg6cq的。
 ````
 cd ~
 [james@linux ~]$ git clone git@github.com:zhangyunkai/ilovegit.git
@@ -38,7 +38,7 @@ README.md
 
 4. 修改文件并提交变化，这时提交到的是自己fork的那份库
 
-执行以下命令，在文件中增加内容，并提交修改：
+执行以下命令，在文件中增加内容，并提交修改，建议使用vi编辑文件README.md：
 ````
 [james@linux ilovegit]$ echo "我喜欢git，我是来自中国科大的测试用户。" >> README.md
 [james@linux ilovegit]$ git add README.md
@@ -54,9 +54,9 @@ Total 3 (delta 0), reused 0 (delta 0)
 To git@github.com:zhangyunkai/ilovegit.git
    ef30c17..b375ad9  master -> master
 ````
-因为提交的是在自己fork的那份库，也就是zhangyuankai/ilovegit。  
+因为提交的是自己fork的那份库，也就是zhangyuankai/ilovegit。  
 这时登录https://github.com/zhangyunkai/ilovegit 能看到文件有变化。  
-如果查看https://github.com/bg6cq/ilovegit 可以看到文件并没有变化。
+查看https://github.com/bg6cq/ilovegit 看到文件并没有变化。
 
 5. 向上游发送一个pull请求
 
@@ -116,7 +116,7 @@ To git@github.com:zhangyunkai/ilovegit.git
 
 9. 与上游同步
 
-如果查看自己fork的项目，已经与上游同步。
+这时查看自己fork的项目，已经与上游同步。
 ![merge](m2.png)
 
 
