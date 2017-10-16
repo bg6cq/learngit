@@ -4,17 +4,19 @@
 
 1. 登录GitHub
 
-浏览器访问 [https://github.com](https://github.com), 单击Sing in, 输入自己账号，
+浏览器访问 [https://github.com](https://github.com), 单击 "Sign in", 输入自己账号、
 密码，登录Github。如果已经登录，请忽略这一步。
 
 2. Fork一个项目
 
 所谓Fork一个项目，可以理解为将别人的项目拷贝一份在自己的账户下，然后自己可以随意修改。
 
-我增加了一个测试项目，里面希望添加参与“大家一起学Git”的人员信息，项目地址是 https://github.com/bg6cq/ilovegit 。
+我增加了一个测试项目，希望大家添加参与“大家一起学Git”的人员信息，项目地址是 https://github.com/bg6cq/ilovegit 。
 
 Fork这个项目的方式是，用浏览器打开 [https://github.com/bg6cq/ilovegit](https://github.com/bg6cq/ilovegit)，单击右侧的Fork即可，如下图所示：
 ![Fork](1.png)
+
+Fork完成后，在自己的账号下就能看到这个项目了。
 
 3. 在Linux中下载一份项目代码
 
@@ -54,9 +56,9 @@ Total 3 (delta 0), reused 0 (delta 0)
 To git@github.com:zhangyunkai/ilovegit.git
    ef30c17..b375ad9  master -> master
 ````
-因为提交的是自己fork的那份库，也就是XXXX/ilovegit。  
-这时登录https://github.com/XXXX/ilovegit 能看到文件有变化。  
-查看https://github.com/bg6cq/ilovegit 看到文件并没有变化。
+特别说明：这里提交的是自己fork的那份库，也就是XXXX/ilovegit。  
+因此这时登录 https://github.com/XXXX/ilovegit 能看到文件有变化。  
+而查看 https://github.com/bg6cq/ilovegit 看到文件并没有变化。
 
 5. 向上游发送一个pull请求
 
@@ -64,23 +66,25 @@ To git@github.com:zhangyunkai/ilovegit.git
 别人合并（merge）后，自己的修改就被别人接受了。
 
 创建pull请求的操作如下：
-在自己的库https://github.com/XXXX/ilovegit 中，单击"New pull request"
+在自己的库 https://github.com/XXXX/ilovegit 中，单击"New pull request"
 ![new pull request](p1.png)
-在出来的窗口中（注意页面顶端的url已经是bg6cq的），能看到要提交给别人的修改，单击"Create pull request"
+
+在出来的窗口中（注意页面顶端的url已经自动变为bg6cq），能看到要提交给别人的修改内容，单击"Create pull request"
 ![new pull request](p2.png)
-会出来如下的窗口，注意其中"Able to merge"说明与其他的修改没有冲突，可以直接被接受，否则请参考 "8.合并上游的修改" 解决冲突后再创建pull请求。
+
+会出来如下的窗口，注意其中"Able to merge"说明与其他的修改没有冲突，可以直接被接受，否则请参考 "8.合并上游的修改" 同步上游的修改，解决冲突后再创建pull请求。
 ![new pull request](p3.png)
 
-这里可以写入一些说明，单击"Create pull request"创建pull请求。
+这里可以写入一些说明，单击 "Create pull request" 创建pull请求。
 
-6. 上游接受修改（这是上游的操作，这里仅仅是演示）
+6. 上游接受修改（这一步是上游的操作，这里仅仅是演示）
 
 上游看到的pull请求如下，只要单击"Merge pull request"即可接受修改。
 ![merget pull request](p4.png)
 
 7. 上游接受修改后，可以看到上游已经变了
 
-查看https://github.com/bg6cq/ilovegit 可以看到文件已经变化。
+上游接受修改后，查看 https://github.com/bg6cq/ilovegit 可以看到文件已经发生变化。
 
 8. 合并上游的修改
 
@@ -119,7 +123,10 @@ To git@github.com:zhangyunkai/ilovegit.git
 这时查看自己fork的项目，已经与上游同步。
 ![merge](m2.png)
 
+10. 与其他人协作
 
+git跟踪的版本变化是网状的，所谓的上游/下游是相对的。在一个项目中，可以去合并其他人的修改，不一定只能从上游获取代码。
+大家可以找其他人的库合并一下测试。只要用`git remote add YYYY https://github.com/YYYY/ilovegit.git`添加对方的库，`git pull YYYY master`就可以把对方最新的代码合并过来。 
 
 ## 课程完成检查点
 
