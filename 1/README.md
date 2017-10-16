@@ -34,5 +34,6 @@ en_US.utf-8
 2. 执行`git`有显示
 
 3. 有github账号可以登录
-
+   
+浏览器访问 https://github.com，单击Sign in, 输入自己账号，密码，可以登录。
 
