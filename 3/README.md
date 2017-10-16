@@ -4,7 +4,7 @@
 
 1. 登录GitHub
 
-浏览器访问 [https://github.com](https://github.com), 单击Sing in, 输入自己账号，
+浏览器访问 [https://github.com](https://github.com), 单击 "Sign in", 输入自己账号、
 密码，登录Github。如果已经登录，请忽略这一步。
 
 2. 新建一个项目
@@ -49,7 +49,7 @@ Total 4 (delta 0), reused 0 (delta 0)
 To git@github.com:zhangyunkai/test.git
  * [new branch]      master -> master
 ````
-这时登录https://github.com/XXXX/test 能看到2个文件。
+这时登录 https://github.com/XXXX/test 能看到2个文件。
 
 4. 修改文件并提交变化
 
@@ -70,11 +70,11 @@ Total 4 (delta 0), reused 0 (delta 0)
 To git@github.com:zhangyunkai/test.git
    944e15d..532b002  master -> master
 ````
-这时登录https://github.com/XXXX/test 能看到2个文件有变化。
+这时登录 https://github.com/XXXX/test 能看到2个文件有变化。
 
 5. 查看变化的历史
 
-单击https://github.com/XXXX/test 下图的位置，可以看到文件变化的历史：
+单击 https://github.com/XXXX/test 下图的位置，可以看到文件变化的历史：
 
 ![1.png](1.png)
 ![2.png](2.png)
