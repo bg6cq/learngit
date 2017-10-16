@@ -135,7 +135,7 @@ To git@github.com:zhangyunkai/ilovegit.git
 
 第四课内容比较多，如果完成，恭喜你理解了github协作的精髓。
 
-我等着大家的pull request（建议用实名，至少学校用实名），看看有多少完成这一课的。
+我等着大家的pull request（建议用实名，至少学校用实名），看看有多少人完成这一课。
 
 
 
