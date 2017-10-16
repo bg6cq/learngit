@@ -26,7 +26,7 @@ en_US.utf-8
 
 4. 注册github账号
 
-浏览器访问 [https://github.com](https://github.com], 输入想要的账号，邮件，密码，单击 Sign up for GitHub注册。
+浏览器访问 [https://github.com](https://github.com), 输入想要的账号，邮件，密码，单击 Sign up for GitHub注册。
 
 ## 课程完成检查点
 1. 可以远程登录Linux，输入中英文
