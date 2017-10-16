@@ -6,7 +6,6 @@
 ````
 git config --global user.name "Zhang Huanjie"
 git config --global user.email james@ustc.edu.cn
-
 ````
 
 2. 生成ssh-key
@@ -15,13 +14,13 @@ ssh-key是git客户端与github认证最方便的方式。
 
 首先查看自己的账户是否已经生成过ssh-key，执行命令
 ````
-james@linux ~]$ ls -al ~/.ssh
+[james@linux ~]$ ls -al ~/.ssh
 drwx------  2 james users 4096 Nov 27  2015 .
 drwxr-xr-x 27 james users 4096 Oct 16 23:06 ..
 -rw-------  1 james users 1675 Nov 22  2015 id_rsa
 -rw-r--r--  1 james users  405 Nov 22  2015 id_rsa.pub
 ````
-如果自己的home目录.ssh目录下存在id_rsa和id_rsa.pub，说明ssh-key已经存在，可以跳过这一步。
+如果自己的home目录.ssh目录下存在id_rsa和id_rsa.pub，说明已经生成过ssh-key，可以跳过这一步。
 
 否则执行
 ```
