@@ -31,7 +31,30 @@ en_US.utf-8
 ## 课程完成检查点
 1. 可以远程登录Linux，输入中英文
 
+执行以下命令，可以输出本文
+````
+curl https://raw.githubusercontent.com/bg6cq/learngit/master/1/README.md
+````
 2. 执行`git`有显示
+```
+$ git
+usage: git [--version] [--help] [-c name=value]
+           [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]
+           [-p|--paginate|--no-pager] [--no-replace-objects] [--bare]
+           [--git-dir=<path>] [--work-tree=<path>] [--namespace=<name>]
+           <command> [<args>]
+
+The most commonly used git commands are:
+   add        Add file contents to the index
+   bisect     Find by binary search the change that introduced a bug
+   branch     List, create, or delete branches
+   checkout   Checkout a branch or paths to the working tree
+   clone      Clone a repository into a new directory
+   commit     Record changes to the repository
+   diff       Show changes between commits, commit and working tree, etc
+   fetch      Download objects and refs from another repository
+
+```
 
 3. 有github账号可以登录
    
