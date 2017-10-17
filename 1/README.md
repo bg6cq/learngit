@@ -36,7 +36,7 @@ en_US.utf-8
 
 * 生成ssh key
 
-打开 tortoiseGit 乌龟的安装目录，比如 C:\Program Files\TortoiseGit\bin ，打开 puttygen.exe ，点击“generate”按钮，点击完随机移动鼠标，会自动生成一个key，在“Key comment”里面输入你任意想写的东西，比如email。“Key passphrase”是key的密码保护，可以不需要密码。然后点击“Save private key”，保存成一个密钥，后缀名是ppk。这个密钥不能给任何人。再“Save public key”，保存公钥，后缀名选择.pub。然后把 “Public key for pasting into OpenSSH authorized_keys file: " 这串的内容放到Git web控制台的Profile setting->SSH Keys，"Add SSH Key"，上 ，这样子你就可以用密钥push 和pull Git内容了。公钥可以给任何人。
+  打开 tortoiseGit 乌龟的安装目录，比如 C:\Program Files\TortoiseGit\bin ，打开 puttygen.exe ，点击“generate”按钮，点击完随机移动鼠标，会自动生成一个key，在“Key comment”里面输入你任意想写的东西，比如email。“Key passphrase”是key的密码保护，可以不需要密码。然后点击“Save private key”，保存成一个密钥，后缀名是ppk。这个密钥不能给任何人。再“Save public key”，保存公钥，后缀名选择.pub。然后把 “Public key for pasting into OpenSSH authorized_keys file: " 这串的内容放到Git web控制台的Profile setting->SSH Keys，"Add SSH Key"，上 ，这样子你就可以用密钥push 和pull Git内容了。公钥可以给任何人。
 
 5. 注册github账号
 
