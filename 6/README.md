@@ -103,6 +103,7 @@ To git@github.com:zhangyunkai/ilovegit.git
 1. 创建分支，并把分支的修改推送到服务器
 
 2. 在github上可以看到分支的有向图
+
   这时登录自己的 https://github.com/XXXX/ilovegit ，在"Inghts/Network"下，可以看到分支的有向图，更加直观。
 
   
