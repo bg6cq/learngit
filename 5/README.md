@@ -11,7 +11,7 @@ git本身是一个完备的版本管理软件，GitHub除了辅助git运行外�
 
 如果想要就某个项目与项目的所有人沟通，可以使用 "Issues" 功能，类似于BBS，但功能更多，可以申报bug，提建议等。
 
-[https://github.com/ustclug/discussions/issues](https://github.com/ustclug/discussions/issues) 这里是科大学生Linux用户协议的交流，大家可以去围观，
+[https://github.com/ustclug/discussions/issues](https://github.com/ustclug/discussions/issues) 这里是科大学生Linux用户协会的交流，大家可以去围观，
 
 也欢迎大家在本项目 [https://github.com/bg6cq/learngit/issues](https://github.com/bg6cq/learngit/issues) 留言和交流。
 
