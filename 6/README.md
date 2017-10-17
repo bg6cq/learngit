@@ -97,6 +97,83 @@ To git@github.com:zhangyunkai/ilovegit.git
    983962c..2170f78  master -> master
 ````
 
+4. 分支的rebase
+
+分支是从创建的时候从某个分支（假定是master分支，成为base基）分叉出来的。如果过了一段时间，在分支中做了修改，原来的master分支也做了修改，我们希望把分支的修改直接应用到
+现在的master分支（当然也就包含了master分支的修改），这个操作叫rebase变基。
+
+假定我们在master里增加"我喜欢git，我是来自火星上的测试用户。"
+
+下面是变基操作：
+````
+[james@linux ilovegit]$ git checkout master
+Switched to branch 'master'
+Your branch is ahead of 'origin/master' by 1 commit.
+  (use "git push" to publish your local commits)
+[james@linux ilovegit]$ cat README.md
+## git 学习宣言
+
+我喜欢git，我是来自中国科大的张焕杰。
+
+我喜欢git，也喜欢GitHub，我是来自中国科大的测试用户。
+
+我喜欢git，我是来自四川托普职院的用户。
+
+我喜欢git，我是来自火星的用户。
+[james@linux ilovegit]$ git add README.md
+[james@linux ilovegit]$ git commit -m "change in master"
+[master a88b59e] change in master
+ 1 file changed, 2 insertions(+)
+[james@linux ilovegit]$ git checkout mytest
+Switched to branch 'mytest'
+[james@linux ilovegit]$ vi README.md
+[james@linux ilovegit]$ cat README.md
+## git 学习宣言
+
+我喜欢git，我是来自中国科大的张焕杰。
+
+我喜欢git，也喜欢GitHub，我是来自中国科大的测试用户。
+
+我喜欢git，我是来自四川托普职院的用户。
+
+我喜欢git，我是来自CERNET的用户。
+[james@linux ilovegit]$ git add README.md
+[james@linux ilovegit]$ git commit -m "change in mytest"
+[mytest 762c5aa] change in mytest
+ 1 file changed, 2 insertions(+)
+[james@linux ilovegit]$ git rebase master
+First, rewinding head to replay your work on top of it...
+Applying: change in mytest
+Using index info to reconstruct a base tree...
+M       README.md
+Falling back to patching base and 3-way merge...
+Auto-merging README.md
+CONFLICT (content): Merge conflict in README.md
+Failed to merge in the changes.
+Patch failed at 0001 change in mytest
+The copy of the patch that failed is found in:
+   /home/users/james/ilovegit/.git/rebase-apply/patch
+
+When you have resolved this problem, run "git rebase --continue".
+If you prefer to skip this patch, run "git rebase --skip" instead.
+To check out the original branch and stop rebasing, run "git rebase --abort".
+````
+由于我们在相同的位置做了修改，合并会引起冲突。
+
+编辑文件 README.md，把冲突的地方修改，git add/commit，然后git rebase --skip，总之按照提示操作。
+
+完成后可以在  https://github.com/XXXX/ilovegit ，在"Insights/Network"下看到分支的有向图。
+
+5. 分支的删除
+
+一个分支合并到其他分支后，如果不再需要，可以删除。
+````
+git branch -D branch_name
+````
+
+服务器端的分支，可以在web界面删除。
+
+
 
 ## 课程完成检查点
 
@@ -104,8 +181,4 @@ To git@github.com:zhangyunkai/ilovegit.git
 
 2. 在github上可以看到分支的有向图
 
-  这时登录自己的 https://github.com/XXXX/ilovegit ，在"Inghts/Network"下，可以看到分支的有向图，更加直观。
-
-  
-   
-
+  这时登录自己的 https://github.com/XXXX/ilovegit ，在"Insights/Network"下，可以看到分支的有向图，更加直观。
