@@ -24,7 +24,7 @@ en_US.utf-8
 
 其他系统可以自行google/baidu。
 
-4. Windows环境准备（厦门大学郑海山老师贡献本节内容）
+4. Windows环境准备（厦门大学郑海山老师贡献本节内容）（Linux环境可以跳过这一步到5. 注册github账号）
 
 * 首先从[https://git-for-windows.github.io/](https://git-for-windows.github.io/)下载安装 windows下的Git命令行
 
