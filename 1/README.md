@@ -1,6 +1,6 @@
 ## 第一课 环境准备
 
-建议的环境：
+建议的环境是Linux环境，如果使用windows，请直接跳到4. windows环境准备：
 
 1. 可以远程ssh登录的Linux环境
 
@@ -24,7 +24,23 @@ en_US.utf-8
 
 其他系统可以自行google/baidu。
 
-4. 注册github账号
+4. Windows环境准备
+
+安装Git windows客户端。
+
+* 首先从[https://git-for-windows.github.io/](https://git-for-windows.github.io/)下载安装 windows下的Git命令行
+
+* 再从 [https://tortoisegit.org/](https://tortoisegit.org/) 下载安装 tortoiseGit 乌龟
+
+* 设置用户名和密码
+
+右键，打开TortoiseGit->Settings，第5项“Git”，有个“User Info”，“Name”输入名字，Email输入email即可。
+
+* 生成ssh key
+
+打开 tortoiseGit 乌龟的安装目录，比如 C:\Program Files\TortoiseGit\bin ，打开 puttygen.exe ，点击“generate”按钮，点击完随机移动鼠标，会自动生成一个key，在“Key comment”里面输入你任意想写的东西，比如email。“Key passphrase”是key的密码保护，可以不需要密码。然后点击“Save private key”，保存成一个密钥，后缀名是ppk。这个密钥不能给任何人。再“Save public key”，保存公钥，后缀名选择.pub。然后把 “Public key for pasting into OpenSSH authorized_keys file: " 这串的内容放到Git web控制台的Profile setting->SSH Keys，"Add SSH Key"，上 ，这样子你就可以用密钥push 和pull Git内容了。公钥可以给任何人。
+
+5. 注册github账号
 
 浏览器访问 [https://github.com](https://github.com), 输入想要的账号、邮件、密码，单击 "Sign up for GitHub" 注册。
 
