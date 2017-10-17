@@ -24,7 +24,7 @@ en_US.utf-8
 
 其他系统可以自行google/baidu。
 
-4. Windows环境准备
+4. Windows环境准备（厦门大学郑海山老师贡献本节内容）
 
 安装Git windows客户端。
 
