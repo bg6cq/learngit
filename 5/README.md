@@ -13,7 +13,7 @@ git本身是一个完备的版本管理软件，GitHub除了辅助git运行外�
 
 [https://github.com/ustclug/discussions/issues](https://github.com/ustclug/discussions/issues) 这里是科大学生Linux用户协议的交流，大家可以去围观，
 
-也欢迎大家在本项目 [https://github.com/bg6cq/learngit/issues](https://github.com/bg6cq/learngit/issues) 留言和交流。发表言论时
+也欢迎大家在本项目 [https://github.com/bg6cq/learngit/issues](https://github.com/bg6cq/learngit/issues) 留言和交流。
 
 
 ## 课程完成检查点
