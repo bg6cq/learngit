@@ -32,9 +32,7 @@ en_US.utf-8
 
 * 再从 [https://tortoisegit.org/](https://tortoisegit.org/) 下载安装 tortoiseGit 乌龟
 
-* 设置用户名和密码
-
-右键，打开TortoiseGit->Settings，第5项“Git”，有个“User Info”，“Name”输入名字，Email输入email即可。
+* 设置用户名和密码，运行tortoiseGit 乌龟，右键，打开TortoiseGit->Settings，第5项“Git”，有个“User Info”，“Name”输入名字，Email输入email即可。
 
 * 生成ssh key
 
