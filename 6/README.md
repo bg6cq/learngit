@@ -99,7 +99,7 @@ To git@github.com:zhangyunkai/ilovegit.git
 
 4. 分支的rebase
 
-分支是从创建的时候从某个分支（假定是master分支，成为base基）分叉出来的。如果过了一段时间，在分支中做了修改，原来的master分支也做了修改，我们希望把分支的修改直接应用到
+分支是从创建的时候从某个分支（假定是master分支，称为base基）分叉出来的。如果过了一段时间，在分支中做了修改，原来的master分支也做了修改，我们希望把分支的修改直接应用到
 现在的master分支（当然也就包含了master分支的修改），这个操作叫rebase变基。
 
 假定我们在master里增加"我喜欢git，我是来自火星上的测试用户。"
