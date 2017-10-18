@@ -4,6 +4,7 @@ git的一个巨大优点就是创建分支、分支间切换、分支的合并�
 
 当一个项目已经稳定运行，需要开发某些特性或新版本时，可以创建一个新的分支，在分支中开发，而不去影响已有的稳定项目。
 
+![branch](img/branch.png)
 1. 创建一个分支
 
 在第四课的目录下进行，先同步最近的代码，然后创建并切换到一个新分支 mytest。
@@ -64,6 +65,8 @@ To git@github.com:zhangyunkai/ilovegit.git
 
 这时登录自己的 https://github.com/XXXX/ilovegit ，在branches下可以看到mytest分支里文件内容有变化，master分支中仍旧是旧的文件。
 
+
+[merge](img/merge.png)
 3. 分支的合并
 
 当分支的开发基本完成，可以稳定运行后，应该把修改应用到master中，就叫做合并。当然合并也可以在其他分支之间发生。
