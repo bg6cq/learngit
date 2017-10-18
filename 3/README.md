@@ -2,7 +2,7 @@
 
 注：以下测试使用的账号是zhangyunkai（XXXX），请用自己的账号替换。
 
-![process](process.png)
+![process](img/process.png)
 
 1. 登录GitHub
 
@@ -12,10 +12,10 @@
 2. 新建一个项目
 
 单击右上角+图标，弹出的下拉框中，单击"New repository"，如下图所示：
-![New](new.png)
+![New](img/new.png)
 
 输入项目名字，单击如下图所示：
-![create](create.png)
+![create](img/create.png)
 
 完成项目创建。
 
@@ -78,9 +78,9 @@ To git@github.com:zhangyunkai/test.git
 
 单击 https://github.com/XXXX/test 下图的位置，可以看到文件变化的历史：
 
-![1.png](1.png)
-![2.png](2.png)
-![3.png](3.png)
+![1.png](img/1.png)
+![2.png](img/2.png)
+![3.png](img/3.png)
 
 
 ## 课程完成检查点

@@ -41,13 +41,13 @@ ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAr9X0n+zQ0zS7A9JLV8611I4w4B13MEbdmDkGf6OyL4f0
 4. 将自己的公钥加到github账号
 
 单击最右上角的图标，弹出的下拉框中，单击 "Settings"，如下图所示：
-![Settings](settings.png)
+![Settings](img/settings.png)
 
 单击左侧的"SSH and PGP keys"，单击右上角的"New SSH key"或者直接拉到最下，如下图所示：
-![newkey](newkey.png)
+![newkey](img/newkey.png)
 
 在Key窗口中粘贴上面的id_rsa.pub内容，注意文本是一行，中间不能有换行，然后单击"Add SSH key"，如下图所示：
-![Add SSH key](3.png)
+![Add SSH key](img/3.png)
 
 GitHub会提示你输入密码验证身份，完成添加，将来客户端利用自己的私钥可以通过服务器的认证，读写服务器的git库。
 
