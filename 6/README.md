@@ -101,6 +101,8 @@ To git@github.com:zhangyunkai/ilovegit.git
    983962c..2170f78  master -> master
 ````
 
+![rebase](img/rebase.png)
+
 4. 分支的rebase
 
 分支是从创建的时候从某个分支（假定是master分支，称为base基）分叉出来的。如果过了一段时间，在分支中做了修改，原来的master分支也做了修改，我们希望把分支的修改直接应用到
