@@ -2,6 +2,8 @@
 
 注：以下测试使用的账号是zhangyunkai（XXXX），请用自己的账号替换。
 
+![process](process.png)
+
 1. 登录GitHub
 
 浏览器访问 [https://github.com](https://github.com), 单击 "Sign in", 输入自己账号、
