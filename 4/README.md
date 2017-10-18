@@ -3,7 +3,7 @@
 注：以下测试使用的账号是zhangyunkai（XXXX），请用自己的账号替换。
 
 
-![工作流程(img/process.png)
+![工作流程](img/process.png)
 
 1. 登录GitHub
 
