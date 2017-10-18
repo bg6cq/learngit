@@ -66,7 +66,8 @@ To git@github.com:zhangyunkai/ilovegit.git
 这时登录自己的 https://github.com/XXXX/ilovegit ，在branches下可以看到mytest分支里文件内容有变化，master分支中仍旧是旧的文件。
 
 
-[merge](img/merge.png)
+![merge](img/merge.png)
+
 3. 分支的合并
 
 当分支的开发基本完成，可以稳定运行后，应该把修改应用到master中，就叫做合并。当然合并也可以在其他分支之间发生。
