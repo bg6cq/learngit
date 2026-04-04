@@ -1,6 +1,6 @@
 ## 第七课 合并commit，整理修改记录
 
-自己在开发过程中，为了避免修改记录丢失，可能会频繁commit。
+在开发过程中，为了避免修改记录丢失，可能会频繁commit。
 
 这样一来会有很多零散的commit，也可能有一些翻来倒去的修改，这些修改是不需要保留修改记录的。
 
@@ -63,8 +63,8 @@ git checkout -b test #创建一个分支
 ````
 git log 看到commit历史后
 
-git rebase -i AAAA BBBB
-可以将AAAA 之后的commit一直到BBBB合并，但AAAA commit是不修改。
+git rebase -i AAAA
+可以将AAAA 之后的某些commit选择合并，但AAAA commit不修改。
 ````
 你好
 ````
@@ -73,7 +73,7 @@ git rebase -i AAAA BBBB
 
 git log 查看commit 记录
 
-然后用git rebase -i AAAA BBBB 将AAAA后直到BBBB的若干commit合并成1个。
+然后用git rebase -i AAAA 将AAAA后的若干commit合并成1个。
 ````
 
 ## 课程完成检查点
