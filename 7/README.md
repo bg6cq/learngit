@@ -76,7 +76,6 @@ git log 查看commit 记录
 然后用git rebase -i AAAA BBBB 将AAAA后直到BBBB的若干commit合并成1个。
 ````
 
-
 ## 课程完成检查点
 
 1. 会灵活使用git rebase -i 合并commit
