@@ -1,6 +1,6 @@
 ## 第一课 环境准备
 
-建议的环境是Linux环境，如果使用windows，请直接跳到4. windows环境准备：
+建议环境是Linux环境，如果使用windows，请直接跳到4. windows环境准备：
 
 1. 可以远程ssh登录的Linux环境
 
