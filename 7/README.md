@@ -1,61 +1,82 @@
-## 第七课 使用GitHub Pages建立自己的主页
+## 第七课 合并commit，整理修改记录
 
-Github Pages 是 github 公司提供的免费的静态网站托管服务，用起来方便而且功能强大。
+自己在开发过程中，为了避免修改记录丢失，可能会频繁commit。
 
-最为关键的是，页面完全是你控制的，github公司不会放任何内容（包括广告）在上面，不仅没有空间限制，还可以绑定自己的域名。
+这样一来会有很多零散的commit，也可能有一些翻来倒去的修改，这些修改是不需要保留修改记录的。
 
-建立自己的主页非常简单：
+合并commit操作可以将若干commit合并成1个，让commit看起来更加整洁。
 
-1. 登录GitHub
+一般在合并分支或提交Pull Requst之前，先用git rebase变基，使得自己的修改基于最新的master；然后对commit进行合并，整理修改记录，让修改历史更加整洁；最后才合并分支或提交Pull Requst。。
 
-浏览器访问 [https://github.com](https://github.com), 单击 "Sign in", 输入自己账号、
-密码，登录Github。如果已经登录，请忽略这一步。
+注意：一旦commit已经由其他人获取，请勿轻易合并commit，因为这样会让别人混乱。因此千万不要在master分支进行合并commit操作。
 
-2. 新建一个项目
+如果已经git push 到服务器，合并commit后因为改变了历史，需要使用git push --force强制push。
 
-单击右上角+图标，弹出的下拉框中，单击"New repository"，如下图所示：
-![New](img/1.png)
+最常见的合并commit方式是交互式 rebase，具体如下：
 
-输入项目名字，名字是 "登录名.github.io"，其中登录名是你的 github账号，注意大小写要完全一样。
+1. 合并最近的N个commit
 
-注意选择“Initialize this repository with a README”，以便生成第一个README文件后，方便使用github web界面编辑文件。
+如果需要将最近的N个commit合并成1个：
+````
+git rebase -i HEAD~N
+````
+例如，合并最近的3个commit:
+````
+git rebase -i HEAD~3
+````
+在弹出的编辑器中，你会看到类似这样的内容：
+````
+pick abc1111 第一次commit
+pick def2222 第二次commit
+pick ghi3333 第三次commit
+````
+保留第一个 pick，把后面的 pick 改为 squash（或 s）：
+````
+pick abc1111 第一次commit
+s def2222 第二次commit
+s ghi3333 第三次commit
+````
+保存退出后，会弹出新窗口让你编辑合并后的 commit message。
 
-如果没有选择这个选项，可以删除重建，或者按照“第三课 新建项目，跟踪自己的修改”，在自己在机器上一个目录编辑index.html文件传到项目中来。
+完成后，这3个commit就合并成1个了。
 
-如下图所示：
+除了squash命令外，还可以有以下常用命令可以操作commit。
+````
+pick   p 使用此 commit（默认）
+reword r 使用此 commit，但修改 commit message
+edit   e 使用此 commit，但暂停以便修改文件内容
+squash s 合并到上一个 commit，同时合并 commit message
+fixup  f 合并到上一个 commit，丢弃此 commit 的 message
+````
 
-![create](img/2.png)
+你可以
+````
+git checkout -b test #创建一个分支
+然后 编辑文件，commit，重复3次。
 
-完成项目创建。
+然后用git rebase -i HEAD~3 将3次commit合并成1个。
+````
 
-3. 添加index.html文件
 
-如果选择“Initialize this repository with a README”，项目库中有了文件，可以在github界面直接新增index.html文件，
-单击"Create new file"，如下图所示：
+2. 合并若干个commit
 
-![index](img/3.png)
+````
+git log 看到commit历史后
 
-在弹出的页面中，文件名输入`index.html`，文件内容输入以下内容：
-```
-<h2>我的第一个html文件</h2>
+git rebase -i AAAA BBBB
+可以将AAAA 之后的commit一直到BBBB合并，但AAAA commit是不修改。
+````
+你好
+````
+在test分支中
+编辑文件，commit，重复5次。
 
-我参与了<a href=https://github.com/bg6cq/learngit>大家一起学git</a>课程，这是我写的第一个html文件。
-```
-如下图所示：
+git log 查看commit 记录
 
-![index](img/4.png)
-
-单击最下方的"Commit new file"保存文件。
-
-4. 查看自己的主页文件
-
-访问 http://xxxx.github.io (xxxx是你的登录名，注意最后是.io)，可以看到刚刚修改的主页。
-
-5. 设定自己的域名
-
-如果你有自己的域名，还可以设置自己的域名，将来使用自己的域名访问。具体操作请搜索"github pages"。
+然后用git rebase -i AAAA BBBB 将AAAA后直到BBBB的若干commit合并成1个。
+````
 
 
 ## 课程完成检查点
 
-1. 自己的主页可以访问
+1. 会灵活使用git rebase -i 合并commit
