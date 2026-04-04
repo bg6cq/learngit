@@ -176,7 +176,6 @@ To check out the original branch and stop rebasing, run "git rebase --abort".
 ````
 git branch -D branch_name
 ````
-
 服务器端的分支，可以在web界面删除，也可以使用下面的命令删除：
 ```
 git push origin :branch_name
