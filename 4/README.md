@@ -1,150 +1,182 @@
-## 第四课 Fork一个项目，把自己的修改提交给服务器，并向上游发pull请求
+## 第四课 Fork 一个项目，提交修改并发起 Pull Request
 
-注：以下测试使用的账号是zhangyunkai（XXXX），请用自己的账号替换。
-
+> 📌 **提示**：以下示例中的 `YOUR_USERNAME` 请替换为你的 GitHub 用户名。
 
 ![工作流程](img/process.png)
 
-1. 登录GitHub
+### 1. 登录 GitHub
 
-浏览器访问 [https://github.com](https://github.com), 单击 "Sign in", 输入自己账号、
-密码，登录Github。如果已经登录，请忽略这一步。
+访问 [https://github.com](https://github.com) 并登录。
 
-2. Fork一个项目
+### 2. Fork 一个项目
 
-所谓Fork一个项目，可以理解为将别人的项目拷贝一份在自己的账户下，然后自己可以随意修改。
+**Fork** 是将别人的项目拷贝一份到自己的账户下，然后可以自由修改。
 
-我增加了一个测试项目，希望大家添加参与“大家一起学Git”的人员信息，项目地址是 https://github.com/bg6cq/ilovegit 。
+本教程的练习项目：**[https://github.com/bg6cq/ilovegit](https://github.com/bg6cq/ilovegit)**
 
-Fork这个项目的方式是，用浏览器打开 [https://github.com/bg6cq/ilovegit](https://github.com/bg6cq/ilovegit)，单击右侧的Fork即可，如下图所示：
+**Fork 步骤**：
+1. 访问 [https://github.com/bg6cq/ilovegit](https://github.com/bg6cq/ilovegit)
+2. 点击右上角的 **Fork** 按钮
+3. 等待片刻，项目会拷贝到你的账户下（`YOUR_USERNAME/ilovegit`）
+
 ![Fork](img/1.png)
 
-Fork完成后，在自己的账号下就能看到这个项目了。
+### 3. 克隆项目到本地
 
-3. 在Linux中下载一份项目代码
-
-执行以下命令，下载一份项目代码到目录ilovegit，注意这里的项目库地址是自己(zhangyunkai/XXXX)的，而不是bg6cq的。
-````
-cd ~
-[james@linux ~]$ git clone git@github.com:XXXX/ilovegit.git
+```bash
+$ cd ~
+$ git clone git@github.com:YOUR_USERNAME/ilovegit.git
 Cloning into 'ilovegit'...
 remote: Counting objects: 3, done.
 remote: Compressing objects: 100% (2/2), done.
 remote: Total 3 (delta 0), reused 3 (delta 0), pack-reused 0
 Receiving objects: 100% (3/3), done.
-[james@linux ~]$ cd ilovegit/
-[james@linux ilovegit]$ ls
-README.md
-[james@linux ilovegit]$ cat README.md
+
+$ cd ilovegit/
+$ cat README.md
 ## git 学习宣言
 
-我喜欢git，我是来自中国科大的张焕杰。
-````
+我喜欢 git，我是来自中国科大的张焕杰。
+```
 
-4. 修改文件并提交变化，这时提交到的是自己fork的那份库
+> ⚠️ **注意**：克隆的是**你 fork 的项目**（`YOUR_USERNAME/ilovegit`），不是原作者的（`bg6cq/ilovegit`）。
 
-执行以下命令，在文件中增加内容，并提交修改，建议使用vi编辑文件README.md：
-````
-[james@linux ilovegit]$ echo "我喜欢git，我是来自中国科大的测试用户。" >> README.md
-[james@linux ilovegit]$ git add README.md
-[james@linux ilovegit]$ git commit -m "test user"
-[master b375ad9] test user
- 1 file changed, 1 insertion(+)
-[james@linux ilovegit]$ git push
-Counting objects: 5, done.
+### 4. 修改文件并提交
+
+建议使用 `vi` 或你喜欢的编辑器修改 `README.md`：
+
+```bash
+# 编辑文件
+$ vi README.md
+
+# 或在文件末尾添加一行
+$ echo "我喜欢 git，我是来自中国科大的测试用户。" >> README.md
+
+# 查看修改
+$ git diff
+diff --git a/README.md b/README.md
+index 5ec1b16..04d08a6 100644
+--- a/README.md
++++ b/README.md
+@@ -1,3 +1,4 @@
+ ## git 学习宣言
+ 
+-我喜欢 git，我是来自中国科大的张焕杰。
++我喜欢 git，我是来自中国科大的测试用户。
+
+# 提交
+$ git add README.md
+$ git commit -m "添加我的学习宣言 - YOUR_NAME"
+
+# 推送到你的 GitHub 仓库
+$ git push
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
 Delta compression using up to 8 threads.
 Compressing objects: 100% (2/2), done.
-Writing objects: 100% (3/3), 338 bytes, done.
-Total 3 (delta 0), reused 0 (delta 0)
-To git@github.com:zhangyunkai/ilovegit.git
+Writing objects: 100% (3/3), 338 bytes | 338.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+To github.com:YOUR_USERNAME/ilovegit.git
    ef30c17..b375ad9  master -> master
-````
-特别说明：这里提交的是自己fork的那份库，也就是XXXX/ilovegit。  
-因此这时登录 https://github.com/XXXX/ilovegit 能看到文件有变化。  
-而查看 https://github.com/bg6cq/ilovegit 看到文件并没有变化。
+```
 
-5. 向上游发送一个pull请求
+**验证**：
+- ✅ 访问 `https://github.com/YOUR_USERNAME/ilovegit` 能看到变化
+- ❌ 访问 `https://github.com/bg6cq/ilovegit` 没有变化
 
-自己的修改仅仅在自己的库中，想让别人接受自己的修改，流程是先创建一个pull请求，请求别人来合并（merge）自己的修改。
-别人合并（merge）后，自己的修改就被别人接受了。
+### 5. 发起 Pull Request
 
-创建pull请求的操作如下：
-在自己的库 https://github.com/XXXX/ilovegit 中，单击"New pull request"
-![new pull request](img/p1.png)
+Pull Request（PR）是请求原作者合并你的修改。
 
-在出来的窗口中（注意页面顶端的url已经自动变为bg6cq），能看到要提交给别人的修改内容，单击"Create pull request"
-![new pull request](img/p2.png)
+**步骤**：
+1. 访问你的项目 `https://github.com/YOUR_USERNAME/ilovegit`
+2. 点击 **Contribute** → **Open pull request**
+3. 页面会自动跳转到上游仓库（`bg6cq/ilovegit`），确认修改内容
+4. 填写 PR 标题和描述（说明你做了什么修改）
+5. 点击 **Create pull request**
 
-会出来如下的窗口，注意其中"Able to merge"说明与其他的修改没有冲突，可以直接被接受，否则请参考 "8.合并上游的修改" 同步上游的修改，解决冲突后再创建pull请求。
-![new pull request](img/p3.png)
+![New Pull Request](img/p1.png)
+![Create PR](img/p2.png)
+![PR 详情](img/p3.png)
 
-这里可以写入一些说明，单击 "Create pull request" 创建pull请求。
+> 💡 **提示**：
+> - 确保 "Able to merge" 显示无冲突
+> - 如有冲突，需先同步上游代码（见第 8 步）
 
-6. 上游接受修改（这一步是上游的操作，这里仅仅是演示）
+### 6. 等待上游接受（原作者操作）
 
-上游看到的pull请求如下，只要单击"Merge pull request"即可接受修改。
-![merget pull request](img/p4.png)
+原作者会看到你的 PR，点击 **Merge pull request** 即可接受修改。
 
-7. 上游接受修改后，可以看到上游已经变了
+![Merge PR](img/p4.png)
 
-上游接受修改后（大家请勿催我，有时间我会尽快接受合并），查看 https://github.com/bg6cq/ilovegit 可以看到文件已经发生变化。
+### 7. 查看合并结果
 
-8. 合并上游的修改
+PR 被接受后，访问 `https://github.com/bg6cq/ilovegit` 可以看到你的修改已合并到上游项目。
 
-Fork项目后，如果上游有了修改，这些修改是不会自动同步的，需要手工合并。
+### 8. 同步上游的修改
 
-如果查看自己fork的项目，有如下的提示，说明上游已经有新的修改需要合并。
+Fork 后，上游的修改不会自动同步，需要手动合并。
 
-![merge](img/m1.png)
+**添加上游仓库**（只需一次）：
+```bash
+$ git remote add upstream https://github.com/bg6cq/ilovegit.git
+```
 
-合并的命令很简单。
+**检查远程仓库**：
+```bash
+$ git remote -v
+origin    git@github.com:YOUR_USERNAME/ilovegit.git (fetch)
+origin    git@github.com:YOUR_USERNAME/ilovegit.git (push)
+upstream  https://github.com/bg6cq/ilovegit.git (fetch)
+upstream  https://github.com/bg6cq/ilovegit.git (push)
+```
 
-首先是增加上游的库，这仅仅需要添加一次，以后不再需要。注意因为没有上游库的写权限，使用https这种方式就可以了。
-````
-[james@linux ilovegit]$ git remote add upstream https://github.com/bg6cq/ilovegit.git
-````
-合并上游的修改，并把所有变化提交到自己fork的库
-````
-[james@linux ilovegit]$ git pull upstream master
-remote: Counting objects: 1, done.
-remote: Total 1 (delta 0), reused 0 (delta 0), pack-reused 0
-Unpacking objects: 100% (1/1), done.
-From https://github.com/bg6cq/ilovegit
- * branch            master     -> FETCH_HEAD
-Updating b375ad9..bb3ca11
-Fast-forward
-[james@linux ilovegit]$ git push
-Counting objects: 1, done.
-Writing objects: 100% (1/1), 270 bytes, done.
-Total 1 (delta 0), reused 0 (delta 0)
-To git@github.com:zhangyunkai/ilovegit.git
-   b375ad9..bb3ca11  master -> master
-````
+**同步上游代码**：
+```bash
+# 获取上游最新代码
+$ git fetch upstream
 
-9. 与上游同步
+# 合并到本地 master 分支
+$ git checkout master
+$ git merge upstream/master
 
-这时查看自己fork的项目，已经与上游同步。
-![merge](img/m2.png)
+# 或直接使用 pull
+$ git pull upstream master
 
-10. 与其他人协作
+# 推送到你的 GitHub 仓库
+$ git push
+```
 
-git跟踪的版本变化是网状的，所谓的上游/下游是相对的。在一个项目中，可以去合并其他人的修改，不限制只能从一个上游获取代码。
+如果有新提交，GitHub 会提示：
 
-大家可以找其他人的库合并一下测试。只要用`git remote add YYYY https://github.com/YYYY/ilovegit.git`添加对方的库，`git pull YYYY master`就可以把对方最新的代码合并过来。 
+![同步提示](img/m1.png)
 
-## 课程完成检查点
+同步后：
 
-1. Fork一个项目
+![同步完成](img/m2.png)
 
-2. 在Linux中下载代码并修改、提交
+### 9. 与其他人协作
 
-3. 服务器上可以看到修改的历史
+Git 的协作是网状的，可以合并多个来源的代码。
 
-4. 创建一个pull请求
+**添加其他协作者的仓库**：
+```bash
+$ git remote add OTHER_USER https://github.com/OTHER_USER/ilovegit.git
+$ git pull OTHER_USER master
+```
 
-5. 等pull请求合并后，同步上游的代码
+---
 
-第四课内容比较多，如果完成，恭喜你理解了github协作的精髓。
+## ✅ 课程完成检查点
 
-我等着大家的pull request（建议用实名，至少学校用实名），看看有多少人坚持完成这一课。
+- [ ] Fork 一个项目
+- [ ] 在本地下载代码并修改、提交
+- [ ] GitHub 上能看到提交历史
+- [ ] 创建 Pull Request
+- [ ] 等待 PR 合并后，同步上游代码
 
+> 🎉 **恭喜**！完成第四课后，你已经理解了 GitHub 协作的核心流程！
+
+---
+
+> 📌 **下一步**：完成 [第五课 交流与沟通](../5/README.md)

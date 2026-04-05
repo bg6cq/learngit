@@ -1,81 +1,129 @@
-## 第七课 合并commit，整理修改记录
+## 第七课 合并 Commit，整理修改记录
 
-在开发过程中，为了避免修改记录丢失，可能会频繁commit。
+开发过程中频繁 commit 可以避免修改丢失，但会产生零散的提交记录。
 
-这样一来会有很多零散的commit，也可能有一些翻来倒去的修改，这些修改是不需要保留修改记录的。
+**交互式 Rebase** 可以将多个 commit 合并，让历史更整洁。
 
-合并commit操作可以将若干commit合并成1个，让commit看起来更加整洁。
+> ⚠️ **警告**：
+> - **不要**在已推送且其他人可能基于此工作的分支上使用（如公共的 master 分支）
+> - **可以**在本地功能分支或 PR 合并前使用
+> - 合并 commit 会改变历史，可能需要 `git push --force`
 
-一般在合并分支或提交Pull Requst之前，先用git rebase变基，使得自己的修改基于最新的master；然后对commit进行合并，整理修改记录，让修改历史更加整洁；最后才合并分支或提交Pull Requst。。
+### 1. 合并最近的 N 个 Commit
 
-注意：一旦commit已经由其他人获取，请勿轻易合并commit，因为这样会让别人混乱。因此千万不要在master分支进行合并commit操作。
+**合并最近 3 个 commit 为 1 个**：
 
-如果已经git push 到服务器，合并commit后因为改变了历史，需要使用git push --force强制push。
+```bash
+$ git rebase -i HEAD~3
+```
 
-最常见的合并commit方式是交互式 rebase，具体如下：
+编辑器会显示：
+```
+pick abc1111 第一次 commit
+pick def2222 第二次 commit
+pick ghi3333 第三次 commit
+```
 
-1. 合并最近的N个commit
+修改为（保留第一个 `pick`，后面的改为 `squash` 或 `s`）：
+```
+pick abc1111 第一次 commit
+s def2222 第二次 commit
+s ghi3333 第三次 commit
+```
 
-如果需要将最近的N个commit合并成1个：
-````
-git rebase -i HEAD~N
-````
-例如，合并最近的3个commit:
-````
-git rebase -i HEAD~3
-````
-在弹出的编辑器中，你会看到类似这样的内容：
-````
-pick abc1111 第一次commit
-pick def2222 第二次commit
-pick ghi3333 第三次commit
-````
-保留第一个 pick，把后面的 pick 改为 squash（或 s）：
-````
-pick abc1111 第一次commit
-s def2222 第二次commit
-s ghi3333 第三次commit
-````
-保存退出后，会弹出新窗口让你编辑合并后的 commit message。
+保存退出后，会弹出新窗口编辑合并后的 commit message。
 
-完成后，这3个commit就合并成1个了。
+完成后，3 个 commit 合并为 1 个。
 
-除了squash命令外，还可以有以下常用命令可以操作commit。
-````
-pick   p 使用此 commit（默认）
-reword r 使用此 commit，但修改 commit message
-edit   e 使用此 commit，但暂停以便修改文件内容
-squash s 合并到上一个 commit，同时合并 commit message
-fixup  f 合并到上一个 commit，丢弃此 commit 的 message
-````
+### 2. 常用 Rebase 命令
 
-你可以
-````
-git checkout -b test #创建一个分支
-然后 编辑文件，commit，重复3次。
+| 命令 | 简写 | 说明 |
+|------|------|------|
+| `pick` | `p` | 使用此 commit（默认） |
+| `reword` | `r` | 使用此 commit，但修改 commit message |
+| `edit` | `e` | 使用此 commit，但暂停以便修改文件内容 |
+| `squash` | `s` | 合并到上一个 commit，同时合并 commit message |
+| `fixup` | `f` | 合并到上一个 commit，丢弃此 commit 的 message |
+| `drop` | `d` | 删除此 commit |
 
-然后用git rebase -i HEAD~3 将3次commit合并成1个。
-````
+### 3. 实战练习
 
+```bash
+# 创建测试分支
+$ git checkout -b test
 
-2. 合并若干个commit
+# 编辑文件，commit，重复 3 次
+$ echo "line 1" >> test.txt && git add test.txt && git commit -m "add line 1"
+$ echo "line 2" >> test.txt && git add test.txt && git commit -m "add line 2"
+$ echo "line 3" >> test.txt && git add test.txt && git commit -m "add line 3"
 
-````
-git log 看到commit历史后
+# 查看 commit 历史
+$ git log --oneline
+abc1234 (HEAD -> test) add line 3
+def5678 add line 2
+ghi9012 add line 3
 
-git rebase -i AAAA
-可以将AAAA 之后的某些commit选择合并，但AAAA commit不修改。
-````
-你好
-````
-在test分支中
-编辑文件，commit，重复5次。
+# 合并最近 3 个 commit
+$ git rebase -i HEAD~3
 
-git log 查看commit 记录
+# 合并后查看
+$ git log --oneline
+xyz7890 (HEAD -> test) add 3 lines
+```
 
-然后用git rebase -i AAAA 将AAAA后的若干commit合并成1个。
-````
+### 4. 合并指定 Commit
 
-## 课程完成检查点
+```bash
+# 查看 commit 历史
+$ git log --oneline
 
-1. 会灵活使用git rebase -i 合并commit
+# 合并某个 commit 之后的若干 commit
+$ git rebase -i <commit-hash>
+```
+
+例如：
+```bash
+$ git rebase -i a1b2c3d
+```
+
+可以在编辑器中选择要合并的 commit。
+
+### 5. 强制推送（谨慎使用）
+
+合并 commit 后，历史已改变，需要强制推送：
+
+```bash
+$ git push --force origin test
+```
+
+> ⚠️ **警告**：`--force` 会覆盖远程历史，确保没有其他人在此分支上工作。
+>
+> **更安全的做法**：使用 `--force-with-lease`，如果远程有新提交会失败而不是覆盖：
+> ```bash
+> $ git push --force-with-lease origin test
+> ```
+
+---
+
+## 📌 何时使用 Rebase
+
+| 场景 | 推荐 |
+|------|------|
+| 合并功能分支到 master 前 | ✅ 整理 commit 历史 |
+| 提交 PR 前 | ✅ 让审查更清晰 |
+| 本地开发中 | ✅ 随时整理 |
+| 公共分支（多人协作） | ❌ 避免改变历史 |
+| 已推送且他人基于此工作 | ❌ 会造成混乱 |
+
+---
+
+## ✅ 课程完成检查点
+
+- [ ] 创建分支并多次 commit
+- [ ] 使用 `git rebase -i` 合并 commit
+- [ ] 理解不同 rebase 命令的用途
+- [ ] （可选）尝试修改 commit message（reword）
+
+---
+
+> 📌 **下一步**：完成 [第八课 GitHub Pages](../8/README.md)

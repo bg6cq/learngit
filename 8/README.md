@@ -1,62 +1,149 @@
-## 第八课 使用GitHub Pages建立自己的主页
+## 第八课 使用 GitHub Pages 建立自己的主页
 
-Github Pages 是 github 公司提供的免费的静态网站托管服务，用起来方便而且功能强大。
+GitHub Pages 是免费的静态网站托管服务，完全由你控制（无广告、无空间限制），可绑定自定义域名。
 
-最为关键的是，页面完全是你控制的，github公司不会放任何内容（包括广告）在上面，不仅没有空间限制，还可以绑定自己的域名。
+### 1. 登录 GitHub
 
-建立自己的主页非常简单：
+访问 [https://github.com](https://github.com) 并登录。
 
-1. 登录GitHub
+### 2. 创建项目
 
-浏览器访问 [https://github.com](https://github.com), 单击 "Sign in", 输入自己账号、
-密码，登录Github。如果已经登录，请忽略这一步。
+1. 点击右上角 **+** → **New repository**
+2. 填写信息：
+   - **Repository name**：`YOUR_USERNAME.github.io`（**必须是这个格式**）
+     - 例如：用户名是 `zhangsan`，仓库名必须是 `zhangsan.github.io`
+   - **Public**：必须公开
+   - ✅ 勾选 **Initialize this repository with a README**
+3. 点击 **Create repository**
 
-2. 新建一个项目
+![创建仓库](img/1.png)
+![填写信息](img/2.png)
 
-单击右上角+图标，弹出的下拉框中，单击"New repository"，如下图所示：
-![New](img/1.png)
+### 3. 添加 index.html
 
-输入项目名字，名字是 "登录名.github.io"，其中登录名是你的 github账号，注意大小写要完全一样。
+#### 方法 A：GitHub 网页编辑（推荐新手）
 
-注意选择“Initialize this repository with a README”，以便生成第一个README文件后，方便使用github web界面编辑文件。
+1. 点击 **Create new file**
+2. 文件名输入 `index.html`
+3. 内容输入：
 
-如果没有选择这个选项，可以删除重建，或者按照“第三课 新建项目，跟踪自己的修改”，在自己在机器上一个目录编辑index.html文件传到项目中来。
-
-如下图所示：
-
-![create](img/2.png)
-
-完成项目创建。
-
-3. 添加index.html文件
-
-如果选择“Initialize this repository with a README”，项目库中有了文件，可以在github界面直接新增index.html文件，
-单击"Create new file"，如下图所示：
-
-![index](img/3.png)
-
-在弹出的页面中，文件名输入`index.html`，文件内容输入以下内容：
+```html
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我的个人主页</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 800px; margin: 50px auto; padding: 20px; }
+        h1 { color: #0366d6; }
+        a { color: #0366d6; }
+    </style>
+</head>
+<body>
+    <h1>👋 你好，我是 YOUR_NAME</h1>
+    <p>这是我用 GitHub Pages 搭建的个人主页。</p>
+    <p>我参与了 <a href="https://github.com/bg6cq/learngit">大家一起学 Git</a> 课程。</p>
+    
+    <h2>关于我</h2>
+    <ul>
+        <li>学校/公司：XXX</li>
+        <li>邮箱：your_email@example.com</li>
+        <li>GitHub: <a href="https://github.com/YOUR_USERNAME">@YOUR_USERNAME</a></li>
+    </ul>
+</body>
+</html>
 ```
-<h2>我的第一个html文件</h2>
 
-我参与了<a href=https://github.com/bg6cq/learngit>大家一起学git</a>课程，这是我写的第一个html文件。
+4. 点击底部 **Commit new file**
+
+![添加文件](img/3.png)
+![编辑内容](img/4.png)
+
+#### 方法 B：本地编辑后推送
+
+```bash
+# 克隆仓库
+$ git clone git@github.com:YOUR_USERNAME/YOUR_USERNAME.github.io.git
+$ cd YOUR_USERNAME.github.io
+
+# 创建 index.html
+$ vi index.html
+# （粘贴上面的 HTML 内容并修改）
+
+# 提交并推送
+$ git add index.html
+$ git commit -m "Add personal homepage"
+$ git push
 ```
-如下图所示：
 
-![index](img/4.png)
+### 4. 访问你的主页
 
-单击最下方的"Commit new file"保存文件。
+访问 `https://YOUR_USERNAME.github.io`（替换为你的用户名）
 
-4. 查看自己的主页文件
+例如：
+- 用户名 `zhangsan` → `https://zhangsan.github.io`
+- 用户名 `bg6cq` → `https://bg6cq.github.io`
 
-访问 http://xxxx.github.io (xxxx是你的登录名，注意最后是.io)，可以看到刚刚修改的主页。
+### 5. 使用 Jekyll 主题（可选）
 
-5. 设定自己的域名
+GitHub Pages 支持 Jekyll 静态博客生成器。
 
-如果你有自己的域名，还可以设置自己的域名，将来使用自己的域名访问。具体操作请搜索"github pages"。
+**快速启用主题**：
+1. 访问仓库的 **Settings** → **Pages**
+2. 在 **Theme chooser** 中选择喜欢的主题
+3. 修改 `_config.yml` 配置个人信息
 
+### 6. 绑定自定义域名（可选）
 
-## 课程完成检查点
+**步骤**：
+1. 在仓库根目录创建 `CNAME` 文件，内容是你的域名：
+```
+example.com
+```
 
-1. 自己的主页可以访问
+2. 在你的域名 DNS 设置中添加：
+   - **A 记录**：`@` → `185.199.108.153`（GitHub Pages IP）
+   - 或 **CNAME 记录**：`www` → `YOUR_USERNAME.github.io`
 
+3. 在仓库 **Settings** → **Pages** → **Custom domain** 中填写域名
+
+详细教程请搜索 "GitHub Pages custom domain"。
+
+---
+
+## 📌 进阶用法
+
+- 使用 [Jekyll](https://jekyllrb.com/) 搭建博客
+- 使用 [Hugo](https://gohugo.io/) 快速生成静态站
+- 集成 [GitHub Actions](https://github.com/features/actions) 自动部署
+- 添加 [Google Analytics](https://analytics.google.com/) 统计访问
+
+---
+
+## ✅ 课程完成检查点
+
+- [ ] 创建 `YOUR_USERNAME.github.io` 仓库
+- [ ] 添加 `index.html` 文件
+- [ ] 成功访问 `https://YOUR_USERNAME.github.io`
+- [ ] （可选）绑定自定义域名
+
+---
+
+## 🎉 恭喜完成课程！
+
+你已经完成了 Git 和 GitHub 的入门学习！
+
+### 接下来可以：
+
+1. **实践**：在日常项目中使用 Git 管理代码
+2. **参与开源**：Fork 感兴趣的项目，提交 PR
+3. **深入学习**：
+   - [Git 官方文档](https://git-scm.com/doc)
+   - [猴子都能懂的 GIT 入门](https://backlog.com/git-tutorial/cn/)
+   - [GitHub Skills](https://skills.github.com/)
+4. **分享**：将本教程推荐给朋友
+
+---
+
+> 💡 **反馈**：欢迎在 [Issues](https://github.com/bg6cq/learngit/issues) 中提出建议或问题！

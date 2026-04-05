@@ -1,74 +1,120 @@
 ## 第二课 环境配置
 
-1. 设置自己的名字和邮件地址
+### 1. 设置用户信息
 
-在Linux中执行以下命令设置自己的信息，请用自己的信息替换如下内容：
-````
+配置 Git 用户信息（请替换为你的真实信息）：
+
+```bash
 git config --global user.name "Zhang Huanjie"
-git config --global user.email james@ustc.edu.cn
-````
-
-2. 生成ssh-key
-
-ssh-key是git客户端与github认证最方便的方式。
-
-首先查看自己的账户是否已经生成过ssh-key，执行命令
-````
-[james@linux ~]$ ls -al ~/.ssh
-drwx------  2 james users 4096 Nov 27  2015 .
-drwxr-xr-x 27 james users 4096 Oct 16 23:06 ..
--rw-------  1 james users 1675 Nov 22  2015 id_rsa
--rw-r--r--  1 james users  405 Nov 22  2015 id_rsa.pub
-````
-如果自己的home目录.ssh目录下存在id_rsa和id_rsa.pub，说明已经生成过ssh-key，可以跳过这一步。
-
-否则执行
+git config --global user.email "james@ustc.edu.cn"
 ```
-ssh-keygen
-```
-生成ssh-key，其中的`id_rsa`是自己的私钥，请妥善保存；`id_ras.pub`是自己的公钥，别人拿到也无所谓，可以随意公布。
-上面的文件id_rsa.pub内容(很长的一行)是
-```
-[james@linux ~]$ cat ~/.ssh/id_rsa.pub
-ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAr9X0n+zQ0zS7A9JLV8611I4w4B13MEbdmDkGf6OyL4f0LVLPY2f7yZpi8VqgyqwUasGtMYRcyE/A7vln+pNEwASPviluhfGr7coxE9ZisdxXTkex9oqhqPfmhnlBjLtsTg3Yh4ZLmzgYprQgAacT9Fc1hNnrc5vwh5lMh7i+bfVkIXbKY8k2dc39qBbsVxtmLDd1rLpb4i+laajglrBvHWFrWdMiOp4Y/O948hSuShDhpthvkV+ZYOlh9QsRD2rXNqfTMC0QXYeYI3tNUMdGxdqgdMC7ZwpH69e5l9WhnMEK1N8io5lITwEhSyoouRmJGuaYaF8MY6BHicuBu9FJEw== james@linux.ustc.edu.cn
-````
 
-3. 登录GitHub
-
-浏览器访问 [https://github.com](https://github.com)，单击 "Sign in"，输入自己账号、
-密码，登录Github。如果已经登录，请忽略这一步。
-
-4. 将自己的公钥加到github账号
-
-单击最右上角的图标，弹出的下拉框中，单击 "Settings"，如下图所示：
-![Settings](img/settings.png)
-
-单击左侧的"SSH and PGP keys"，单击右上角的"New SSH key"或者直接拉到最下，如下图所示：
-![newkey](img/newkey.png)
-
-在Key窗口中粘贴上面的id_rsa.pub内容，注意文本是一行，中间不能有换行，然后单击"Add SSH key"，如下图所示：
-![Add SSH key](img/3.png)
-
-GitHub会提示你输入密码验证身份，完成添加，将来客户端利用自己的私钥可以通过服务器的认证，读写服务器的git库。
-
-## 课程完成检查点
-
-1. 配置了自己的姓名和邮箱
-
-执行`git config --global -l`可以看到，如下:
-````
-[james@linux ~]$ git config --global -l
+**验证配置**：
+```bash
+$ git config --global -l
 user.name=Zhang Huanjie
 user.email=james@ustc.edu.cn
-````
+```
 
-2. Linux服务器上有自己账户的ssh-key
+> 💡 **提示**：
+> - `--global` 表示全局配置（对所有仓库生效）
+> - 邮箱建议使用 GitHub 账号关联的邮箱
+> - 可在 GitHub Settings → Emails 中设置邮箱隐私
 
-执行以下命令，可以看到key文件
-````
-ls ~/.ssh
-````
+### 2. 生成 SSH 密钥
 
-3. github账号中添加了自己的公钥
-   
-浏览器访问 [https://github.com](https://github.com)，单击 "Sign in", 输入自己账号、密码，登录后在右上角图标下拉菜单 "Settings/SSH and GPG keys" 可以看到自己的公钥。
+SSH 密钥是 Git 客户端与 GitHub 认证最方便的方式。
+
+#### 检查是否已有 SSH 密钥
+
+```bash
+ls -al ~/.ssh
+```
+
+如果存在 `id_rsa` 和 `id_rsa.pub`（或 `id_ed25519` 和 `id_ed25519.pub`），说明已生成过，可跳过此步。
+
+#### 生成新的 SSH 密钥
+
+**推荐：使用 Ed25519 算法**（更安全）：
+```bash
+ssh-keygen -t ed25519 -C "your_email@example.com"
+```
+
+**或使用 RSA 算法**（兼容性更好）：
+```bash
+ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
+```
+
+按提示操作：
+- 保存路径：直接回车（默认 `~/.ssh/id_ed25519`）
+- 密码短语：可选，直接回车表示无密码
+
+生成的文件：
+- `~/.ssh/id_ed25519` - **私钥**（妥善保管，切勿泄露）
+- `~/.ssh/id_ed25519.pub` - **公钥**（可公开）
+
+#### 查看公钥内容
+
+```bash
+$ cat ~/.ssh/id_ed25519.pub
+ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAI... your_email@example.com
+```
+
+### 3. 登录 GitHub
+
+访问 [https://github.com](https://github.com)，点击右上角 "Sign in" 登录。
+
+### 4. 添加 SSH 公钥到 GitHub
+
+1. 点击右上角头像 → **Settings**
+2. 左侧菜单选择 **SSH and GPG keys**
+3. 点击右上角 **New SSH key** 或拉到页面底部
+4. 填写：
+   - **Title**：任意标识（如 "My Laptop"）
+   - **Key type**：选择 "Authentication Key"
+   - **Key**：粘贴 `id_ed25519.pub` 的完整内容（**确保是一行，无换行**）
+5. 点击 **Add SSH key**
+6. 可能需要输入 GitHub 密码验证
+
+### 5. 测试 SSH 连接
+
+```bash
+$ ssh -T git@github.com
+Hi your_username! You've successfully authenticated, but GitHub does not provide shell access.
+```
+
+看到成功提示说明配置完成。
+
+---
+
+## ✅ 课程完成检查点
+
+### 1. 配置了姓名和邮箱
+
+```bash
+$ git config --global -l
+user.name=Zhang Huanjie
+user.email=james@ustc.edu.cn
+```
+
+### 2. Linux 服务器上有 SSH 密钥
+
+```bash
+$ ls ~/.ssh
+id_ed25519  id_ed25519.pub  known_hosts
+```
+
+### 3. GitHub 账号中添加了公钥
+
+访问 [https://github.com/settings/keys](https://github.com/settings/keys) 可以看到已添加的公钥。
+
+### 4. SSH 连接测试成功
+
+```bash
+$ ssh -T git@github.com
+Hi your_username! You've successfully authenticated...
+```
+
+---
+
+> 📌 **下一步**：完成 [第三课 新建项目，跟踪修改](../3/README.md)
