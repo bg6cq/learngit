@@ -70,7 +70,7 @@ Branch 'master' set up to track remote branch 'master' from 'origin' by 'rebase'
 
 > 💡 **注意**：
 > - 首次连接 GitHub 时会提示确认主机指纹，输入 `yes` 确认
-> - 现在 GitHub 默认使用 `main` 作为主分支名，如遇到分支名问题可使用 `git branch -M main` 修改
+> - 分支名之前默认是master，现在 GitHub 默认使用 `main` 作为主分支名，如遇到分支名问题可使用 `git branch -M main` 修改
 
 ### 4. 修改文件并提交
 
