@@ -16,7 +16,7 @@
    - **Repository name**：项目名（如 `test`）
    - **Description**：可选描述
    - **Public/Private**：选择 Public（公开）或 Private（私有）
-   - ✅ 勾选 **Initialize this repository with a README**（可选）
+   - 不要勾选 **Initialize this repository with a README**（可选）
 4. 点击 **Create repository**
 
 ![New Repository](img/new.png)

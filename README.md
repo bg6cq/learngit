@@ -23,11 +23,8 @@
 
 ## 🚀 快速开始
 
-```bash
-# 克隆本教程到本地（可选）
-git clone https://github.com/bg6cq/learngit.git
-cd learngit
-```
+> 📌 **开始学习**：[第一课 环境准备](1/README.md)
+
 
 ## 📖 进阶学习
 

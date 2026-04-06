@@ -53,6 +53,10 @@ ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
 - `~/.ssh/id_ed25519` - **私钥**（妥善保管，切勿泄露）
 - `~/.ssh/id_ed25519.pub` - **公钥**（可公开）
 
+小知识：
+
+生成密钥时，可以给密钥加一个密码(passphrase)保护。如果感觉每次输入密码太麻烦，请搜sshkey-add。
+
 #### 查看公钥内容
 
 ```bash
